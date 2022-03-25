@@ -1,0 +1,12 @@
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+  padding: 50px;
+}
+
+.container-fluid h1 {
+  font-size: 60px;
+}

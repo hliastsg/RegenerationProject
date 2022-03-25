@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap.scss';
+
+.navbar {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;;
+}
+
+.navbar-brand {
+  display: flex;
+  position: relative;
+  left: 20px;
+  padding-right: 20px;
+}
+
+.navbar li {
+  justify-content: space-around;
+  display: flex;
+  font-size: larger;
+}
+
+.navbar form {
+  display: flex;
+  position: absolute;
+  right: 10px;
+}
