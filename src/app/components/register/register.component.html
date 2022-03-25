@@ -1,93 +1,108 @@
-<!-- <form>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationServer01">First name</label>
-      <input type="text" class="form-control is-valid" id="validationServer01" placeholder="First name" value="Mark" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationServer02">Last name</label>
-      <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" value="Otto" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationServerUsername">Username</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroupPrepend3">@</span>
-        </div>
-        <input type="text" class="form-control is-invalid" id="validationServerUsername" placeholder="Username" aria-describedby="inputGroupPrepend3" required>
-        <div class="invalid-feedback">
-          Please choose a username.
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationServer03">City</label>
-      <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="City" required>
-      <div class="invalid-feedback">
-        Please provide a valid city.
-      </div>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationServer04">State</label>
-      <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="State" required>
-      <div class="invalid-feedback">
-        Please provide a valid state.
-      </div>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationServer05">Zip</label>
-      <input type="text" class="form-control is-invalid" id="validationServer05" placeholder="Zip" required>
-      <div class="invalid-feedback">
-        Please provide a valid zip.
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
-      <label class="form-check-label" for="invalidCheck3">
-        Agree to terms and conditions
-      </label>
-      <div class="invalid-feedback">
-        You must agree before submitting.
-      </div>
-    </div>
-  </div>
-  <button class="btn btn-primary" type="submit">Submit form</button>
-</form> -->
-
-
-
-<form>
+<form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()">
   <div class="form-row">
     <div class="form-group col-md-3 mb-3">
-      <label for="inputFullName4">Full Name</label>
-      <input type="text" class="form-control" id="inputPassword4" placeholder="Full Name">
+      <label>Full Name</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Full Name"
+        formControlName="fullName"
+        [ngClass]= "{'is-invalid' :
+          RegisterForm.get('fullName')?.touched &&
+          RegisterForm.get('fullName')?.invalid}"
+      />
+      <div *ngIf="RegisterForm.get('fullName')?.hasError('required') &&
+        RegisterForm.get('fullName')?.touched">
+        <small class="text-danger">Name is required</small>
+      </div>
+      <div *ngIf="RegisterForm.get('fullName')?.hasError('minlength') &&
+        RegisterForm.get('fullName')?.touched">
+        <small class="text-danger">Name should be at least 3 characters</small>
+      </div>
+      <div *ngIf="RegisterForm.get('fullName')?.hasError('maxlength') &&
+        RegisterForm.get('fullName')?.touched">
+        <small class="text-danger">Name should not be more than 10 charcters</small>
+      </div>
     </div>
     <div class="form-group col-md-3 mb-3">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <label>Email</label>
+      <input
+        type="email"
+        formControlName="email"
+        class="form-control"
+        placeholder="Email"
+        [ngClass]= "{'is-invalid' :
+          RegisterForm.get('email')?.touched &&
+          RegisterForm.get('email')?.invalid}"
+      />
+      <div *ngIf="RegisterForm.get('email')?.hasError('required') &&
+      RegisterForm.get('email')?.touched">
+      <small class="text-danger">Email is required</small>
+      </div>
+      <div *ngIf="RegisterForm.get('email')?.hasError('email') &&
+      RegisterForm.get('email')?.touched">
+      <small class="text-danger">This is not a valid e-mail format</small>
+      </div>
     </div>
     <div class="form-group col-md-3 mb-3">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+      <label>Password</label>
+      <input
+        type="password"
+        name="password"
+        formControlName="password"
+        class="form-control"
+        placeholder="Password"
+        [ngClass]= "{'is-invalid' :
+          RegisterForm.get('password')?.touched &&
+          RegisterForm.get('password')?.hasError('required') ||
+          RegisterForm.hasError('notSame')}"
+      >
+      <div *ngIf="RegisterForm.get('password')?.hasError('required') &&
+      RegisterForm.get('password')?.touched">
+      <small class="text-danger">Password is required</small>
+      </div>
+      <div *ngIf="RegisterForm.hasError('notSame')">
+      <small class="text-danger">Passwords do not match</small>
+      </div>
     </div>
     <div class="form-group col-md-3 mb-3">
-      <label for="inputPassword4">Confirm Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Confirm Password">
+      <label>Confirm Password</label>
+      <input
+        type="password"
+        name="confPass"
+        formControlName="confirmPass"
+        class="form-control"
+        placeholder="Confirm Password"
+        [ngClass]= "{'is-invalid' :
+        RegisterForm.get('confirmPass')?.touched &&
+        RegisterForm.get('confirmPass')?.hasError('required') ||
+        RegisterForm.hasError('notSame')}"
+      >
+      <div *ngIf="RegisterForm.get('confirmPass')?.hasError('required') &&
+      RegisterForm.get('confirmPass')?.touched">
+      <small class="text-danger">Password is required</small>
+      </div>
+      <div *ngIf="RegisterForm.hasError('notSame')" >
+      <small class="text-danger">Passwords do not match</small>
+      </div>
     </div>
     <div class="form-group col-md-3 mb-3">
-      <label for="inputDateFfBirth4">Date of Birth</label>
-      <input type="text" class="form-control" id="inputPassword4" placeholder="Date of Birth">
+      <label>Date of Birth</label>
+      <input
+        type="text"
+        name="dob"
+        formControlName="dob"
+        class="form-control"
+        placeholder="Date of Birth"
+        [ngClass]= "{'is-invalid' :
+          RegisterForm.get('dob')?.hasError('required') &&
+          RegisterForm.get('dob')?.touched}"
+      >
     </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
+    {{ RegisterForm.value   | json}}
+    {{RegisterForm.hasError('notSame')}}
+    <button type="submit" class="btn btn-primary">Register</button>
   </div>
+
 </form>
+
