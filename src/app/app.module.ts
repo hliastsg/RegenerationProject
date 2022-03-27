@@ -1,3 +1,5 @@
+import { GameComponent } from './components/game/game.component';
+import { GameService } from 'src/app/services/game.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,6 +11,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { AboutComponent } from './components/about/about.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GamesComponent } from './components/games/games.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,15 +21,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     RegisterComponent,
     AboutComponent,
-    SignInComponent
+    SignInComponent,
+    GamesComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ GameService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
