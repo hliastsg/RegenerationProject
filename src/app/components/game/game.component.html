@@ -2,6 +2,7 @@
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">{{game.name}}</h5>
-    <img [src]="game.background_image">
+    <a routerLink="gameDetails/{{game.id}}"> <img [src]="game.background_image"> </a>
+    {{game.id}}
   </div>
 </div>
