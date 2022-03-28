@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { catchError, retry, throwError } from 'rxjs';
+import { catchError, Observable, retry, throwError } from 'rxjs';
 
 
 
@@ -12,11 +12,13 @@ export class GameService {
   constructor(private http: HttpClient) { }
 
   url: string = 'https://api.rawg.io/api/games';
-  params = new HttpParams()
-  .set('key', 'dac4d24e2f2a4bd9b158a06fd7645c15');
+  // params = new HttpParams()
+  // .set('key', 'dac4d24e2f2a4bd9b158a06fd7645c15');
 
-  get(){
-    return this.http.get(this.url, {params: this.params})
+  get(params: any){
+    console.log(params);
+
+    return this.http.get(this.url, {params: params})
       .pipe(
         retry(1),
         catchError(error => throwError(() => `Something went wrong: ${error}`))

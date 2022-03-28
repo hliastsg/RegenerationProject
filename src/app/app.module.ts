@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GamesComponent } from './components/games/games.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { GameDetailsComponent } from './components/game-details/game-details.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     SignInComponent,
     GamesComponent,
     GameComponent,
-    DashboardComponent
+    DashboardComponent,
+    GameDetailsComponent
   ],
   imports: [
     BrowserModule,

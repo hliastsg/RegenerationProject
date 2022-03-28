@@ -1,4 +1,6 @@
+import { HttpParams } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { GameService } from 'src/app/services/game.service';
 
 @Component({
   selector: 'app-game',
@@ -8,11 +10,36 @@ import { Component, Input, OnInit } from '@angular/core';
 export class GameComponent implements OnInit {
 
 
-  @Input() game: any;
+  @Input()
 
-  constructor() { }
+  game: any;
+  response: any;
+  msg: any;
+
+  params = new HttpParams()
+  .set('id', '')
+  .set('key', 'dac4d24e2f2a4bd9b158a06fd7645c15')
+
+  constructor(private service: GameService) {}
 
   ngOnInit(): void {
+
+  }
+
+  gameOnClick(id: any) {
+    console.log(id);
+    this.params.set('id', id);
+    console.log(this.params);
+
+    this.service.get(this.params).subscribe({
+      next: data => {
+        this.response = data
+      },
+      error: error => this.msg = error,
+      complete: () => this.msg = 'Request completed'
+    });
+    console.log(this.response);
+
   }
 
 }

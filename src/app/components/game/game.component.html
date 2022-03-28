@@ -2,6 +2,9 @@
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">{{game.name}}</h5>
-    <img [src]="game.background_image">
+    <img
+      [src]="game.background_image"
+      (click)="gameOnClick(game.id)"
+    >
   </div>
 </div>
