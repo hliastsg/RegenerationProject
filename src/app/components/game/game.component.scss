@@ -1,0 +1,17 @@
+.card {
+  display: inline-flex;
+  width: 30%;
+  margin: 12px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  color: rgba(197, 197, 197, 0.781);
+}
+
+.card img {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  min-height: 20vh;
+}

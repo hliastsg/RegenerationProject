@@ -1,9 +1,16 @@
 .form-row {
   display: flex;
+  position: relative;
+  top: 10vh;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 85vh;
+  color: rgba(197, 197, 197, 0.781);
+  background-color: transparent;
 }
 
-
+.form-row input {
+  background-color: transparent;
+  color: aliceblue;
+}

@@ -1,11 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/scss/bootstrap.scss';
+body {
+  background: linear-gradient(#000000, transparent 300%), #0aff53;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
 .navbar {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(207, 207, 207, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
   display: flex;
   justify-content: space-around;
-  align-items: center;;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 99999;
 }
 
 .navbar-brand {

@@ -1,8 +1,11 @@
-<p>games works!</p>
+
 <!-- <pre>{{response |json}}</pre> -->
 
+    <app-game [game]="g" *ngFor="let g of response.results"></app-game>
 
-<app-game [game]="g" *ngFor="let g of response.results"></app-game>
+
+
+
 
 <!-- <ul>
   <li *ngFor="let game of response.results">

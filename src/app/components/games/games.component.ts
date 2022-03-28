@@ -10,7 +10,8 @@ import { GameService } from 'src/app/services/game.service';
 export class GamesComponent implements OnInit {
 
  //data:any;
-  response:any;
+  response: any;
+  msg: string = '';
 
   constructor(private service :GameService) {
    }
@@ -21,13 +22,13 @@ export class GamesComponent implements OnInit {
     }
 
   requestGames() {
-    this.service.get().subscribe(
-      data => {
-        this.response = data;
-
+    this.service.get().subscribe({
+      next: data => {
+        this.response = data
       },
-      error => {},
-      () => {}
-      );
+      error: error => this.msg = error,
+      complete: () => this.msg = 'Request completed'
+    });
   }
+
 }

@@ -13,6 +13,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GamesComponent } from './components/games/games.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     AboutComponent,
     SignInComponent,
     GamesComponent,
-    GameComponent
+    GameComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
