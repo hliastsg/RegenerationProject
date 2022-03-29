@@ -18,7 +18,7 @@ export class GameDetailsComponent implements OnInit {
   constructor(  private service :GameDetailsService , private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    
+
     this.activatedRoute.params.subscribe(params => {
     this.id = params['id'];
 
@@ -34,6 +34,8 @@ export class GameDetailsComponent implements OnInit {
       error: error => this.msg = error,
       complete: () => this.msg = 'Request completed'
     });
+    console.log(this.response);
+
   }
 
 

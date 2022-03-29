@@ -1,9 +1,23 @@
-<p>game-details works!</p>
-
-<div class="card">
+<!-- <div class="card">
   <div class="card-body">
     <h5 class="card-title">{{response.name}}</h5>
     <img width=100px [src]="response.background_image">
     {{id}}
   </div>
+</div> -->
+
+<div class="container">
+  <img width="100%" [src]="response.background_image">
+  <h1>{{response.name}}</h1>
+  <h3>Release Date: {{response.released}}</h3>
+  <h4>Rating: {{response.rating}}/5</h4>
+  <h4>Twitch count: {{response.twitch_count}}</h4>
+  <h4>Youtube views: {{response.youtube_count}}</h4>
+  <a href={{response.website}}>Website </a>
+  <p>{{response.description}}</p>
+  <img width= "70%" [src]="response.background_image_additional">
+</div>
+<div class="actions">
+  <button class="btn">Buy Now</button>
+  <button class="btn">Add to wishlist</button>
 </div>

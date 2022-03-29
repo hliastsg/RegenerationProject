@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from 'src/app/services/game.service';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: GameService) { }
+
+  response: any;
+  msg: any;
 
   ngOnInit(): void {
+    this.requestGames();
+  }
+
+  requestGames() {
+    this.service.get().subscribe({
+      next: data => {
+        this.response = data
+      },
+      error: error => this.msg = error,
+      complete: () => this.msg = 'Request completed'
+    });
   }
 
 }
