@@ -19,7 +19,7 @@ export class PostUserService {
   }
 
   postUser(data: any) {
-    return this.http.post(this.urlFakePost, JSON.stringify(data), this.httpOptions)
+    return this.http.post(this.urlFakePost, data, this.httpOptions)
     .pipe(
       retry(1),
       catchError(error => throwError(() => `Something went wrong ${error}`))
