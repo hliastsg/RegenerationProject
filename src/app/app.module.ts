@@ -15,6 +15,8 @@ import { GamesComponent } from './components/games/games.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { GameDetailsComponent } from './components/game-details/game-details.component';
+import { GameDetailsService } from './services/game-details.service';
+import { PostUserService } from './services/post-user.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import { GameDetailsComponent } from './components/game-details/game-details.com
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ GameService],
+  providers: [ GameService, GameDetailsService, PostUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
