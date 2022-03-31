@@ -1,6 +1,7 @@
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { PostUserService } from 'src/app/services/post-user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,7 +10,7 @@ import { PostUserService } from 'src/app/services/post-user.service';
 })
 export class SignInComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private service: PostUserService) { }
+  constructor(private fb: FormBuilder, private service: PostUserService, private router: Router) { }
 
   LoginForm = new FormGroup({});
   hasError: boolean = true;
@@ -45,6 +46,7 @@ export class SignInComponent implements OnInit {
       complete: () => this.msg = 'Request completed'
     });
     console.log(this.response);
+    this.router.navigate(['/', 'dashboard']);
 
   } else {
     alert("Enter your credentials correctly to sign in")

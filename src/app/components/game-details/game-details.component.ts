@@ -24,6 +24,7 @@ export class GameDetailsComponent implements OnInit {
 
     this.requestGameDetails();
       });
+    window.scrollTo(0, 0);
   }
 
   requestGameDetails() {
