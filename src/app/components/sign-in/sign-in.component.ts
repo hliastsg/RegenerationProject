@@ -49,8 +49,7 @@ export class SignInComponent implements OnInit {
     this.router.navigate(['/', 'dashboard']);
 
   } else {
-    alert("Enter your credentials correctly to sign in")
+      alert("Enter your credentials correctly to sign in")
+    }
   }
-  }
-
 }

@@ -107,6 +107,54 @@
     </div>
     <button type="submit" class="btn btn-primary">Register</button>
   </div>
-
+</form>
+<div class="header">
+  <h1>Choose a plan</h1>
+</div>
+<div class="subscription">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Basic</h5>
+      <h6 class="card-text">1 Member</h6>
+      <p class="card-text">Price: 8.99$ per month</p>
+      <input type="checkbox">
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Plus</h5>
+      <h6 class="card-text">2 Members</h6>
+      <p class="card-text">Price: 12.98$ per month</p>
+      <input type="checkbox">
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Pro</h5>
+      <h6 class="card-text">4 Members</h6>
+      <p class="card-text">Price: 22.98$ per month</p>
+      <input type="checkbox">
+    </div>
+  </div>
+</div>
+<form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-md-3 mb-3">
+      <label>Full Name</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Full Name"
+        formControlName="fullName"
+        [ngClass]= "{'is-invalid' :
+          RegisterForm.get('fullName')?.touched &&
+          RegisterForm.get('fullName')?.invalid}"
+      />
+      <div *ngIf="RegisterForm.get('fullName')?.hasError('required') &&
+        RegisterForm.get('fullName')?.touched">
+        <small class="text-danger">Name is required</small>
+      </div>
+    </div>
+  </div>
 </form>
 

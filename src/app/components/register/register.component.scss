@@ -14,3 +14,27 @@
   background-color: transparent;
   color: aliceblue;
 }
+
+.subscription {
+  display: inline-flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  text-align: center;
+  background-color: transparent;
+  color:aliceblue;
+  border: aliceblue  1px solid;
+  border-radius: 9px;
+  padding: 15px;
+  margin: 15px;
+  left: 235px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  color: aliceblue;
+}
