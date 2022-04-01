@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl, ValidatorFn, AbstractControl, ValidationErrors} from '@angular/forms';
 import { PostUserService } from 'src/app/services/post-user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import { PostUserService } from 'src/app/services/post-user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private service : PostUserService) { }
+  constructor(private fb: FormBuilder, private service : PostUserService, private router: Router) { }
 
   RegisterForm = new FormGroup({});
   PaymentForm = new FormGroup({});
@@ -73,7 +74,7 @@ export class RegisterComponent implements OnInit {
 
  onSubmit() {
    this.getFormValidationErrors();
-  if (!this.hasError && !this.payError) {
+  if (!this.hasError || !this.payError) {
     this.service.postUser(this.RegisterForm.value).subscribe({
       next: data => {
         this.response = data
@@ -82,7 +83,7 @@ export class RegisterComponent implements OnInit {
       complete: () => this.msg = 'Request completed'
     });
     console.log(this.response);
-
+    this.router.navigate(['/', 'dashboard']);
   } else {
     alert("Fill all the fields correctly to register")
   }
