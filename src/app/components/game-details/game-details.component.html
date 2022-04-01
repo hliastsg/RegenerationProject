@@ -18,8 +18,6 @@
   <img width= "70%" [src]="response.background_image_additional">
 </div>
 <div class="actions">
-  <button class="btn">Buy Now</button>
-  <button class="btn">Add to wishlist</button>
+  <button class="btn" (click)="btnClick()">Buy Now</button>
+  <button class="btn" (click)="btnClick()">Add to wishlist</button>
 </div>
-
-{{response.platforms.platform | json}}

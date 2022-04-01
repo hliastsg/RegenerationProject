@@ -39,6 +39,9 @@ export class GameDetailsComponent implements OnInit {
 
   }
 
+  btnClick() {
+    alert("Sorry, this feature is still being developed, you can try later!")
+  }
 
 
 

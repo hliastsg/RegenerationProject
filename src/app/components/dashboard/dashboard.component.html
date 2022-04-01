@@ -1,3 +1,5 @@
+
+<app-navbar-auth></app-navbar-auth>
 <div class="sidebar">
   <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 260px;">
     <a href="/dashboard" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -10,11 +12,6 @@
           Home
         </a>
       </li>
-      <!-- <li>
-        <a href="/dashboard" class="nav-link text-white">
-          Dashboard
-        </a>
-      </li> -->
       <li>
         <a class="btn" (click)="requestNewRelease()">
           <!-- <div *ngIf="release"> loading........ </div> -->
@@ -81,5 +78,7 @@
   <div *ngIf="sports">
     <h1> Sport Games </h1>
   </div>
+</div>
+<div class="games">
   <app-game [game]="g" *ngFor="let g of response.results"></app-game>
 </div>

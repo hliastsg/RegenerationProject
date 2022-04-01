@@ -1,4 +1,8 @@
-<form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()">
+<div class="header">
+  <h1>Available 1000+ Games, New Releases, Exclusive Content</h1>
+  <h2>Enter your details to subscribe now!</h2>
+</div>
+<form [formGroup]="RegisterForm">
   <div class="form-row">
     <div class="form-group col-md-3 mb-3">
       <label>Full Name</label>
@@ -105,10 +109,9 @@
       <small class="text-danger">Date of birth is required</small>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Register</button>
   </div>
 </form>
-<div class="header">
+<div class="mid">
   <h1>Choose a plan</h1>
 </div>
 <div class="subscription">
@@ -117,7 +120,7 @@
       <h5 class="card-title">Basic</h5>
       <h6 class="card-text">1 Member</h6>
       <p class="card-text">Price: 8.99$ per month</p>
-      <input type="checkbox">
+      <input type="checkbox" [checked]="isChecked1">
     </div>
   </div>
   <div class="card" style="width: 18rem;">
@@ -125,7 +128,7 @@
       <h5 class="card-title">Plus</h5>
       <h6 class="card-text">2 Members</h6>
       <p class="card-text">Price: 12.98$ per month</p>
-      <input type="checkbox">
+      <input type="checkbox" [checked]="isChecked2">
     </div>
   </div>
   <div class="card" style="width: 18rem;">
@@ -133,28 +136,83 @@
       <h5 class="card-title">Pro</h5>
       <h6 class="card-text">4 Members</h6>
       <p class="card-text">Price: 22.98$ per month</p>
-      <input type="checkbox">
+      <input type="checkbox" [checked]="isChecked3">
     </div>
   </div>
 </div>
-<form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()">
-  <div class="form-row">
+
+
+<form [formGroup]="PaymentForm">
+  <div id="payment" class="form-row">
+    <div class="dropdown">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        <strong>Choose Payment Method</strong>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+        <li><a class="dropdown-item">Visa / MasterCard / Amex</a></li>
+        <li><a class="dropdown-item" href="https://www.paypal.com/signin">Paypal</a></li>
+      </ul>
+    </div>
     <div class="form-group col-md-3 mb-3">
-      <label>Full Name</label>
+      <label>Card Number</label>
       <input
         type="text"
         class="form-control"
-        placeholder="Full Name"
-        formControlName="fullName"
+        placeholder="Card Number"
+        formControlName="card"
         [ngClass]= "{'is-invalid' :
-          RegisterForm.get('fullName')?.touched &&
-          RegisterForm.get('fullName')?.invalid}"
+          PaymentForm.get('card')?.touched &&
+          PaymentForm.get('card')?.invalid}"
       />
-      <div *ngIf="RegisterForm.get('fullName')?.hasError('required') &&
-        RegisterForm.get('fullName')?.touched">
-        <small class="text-danger">Name is required</small>
+      <div *ngIf="PaymentForm.get('card')?.hasError('required') &&
+        PaymentForm.get('card')?.touched">
+        <small class="text-danger">Card Number is required</small>
+      </div>
+      <div *ngIf="PaymentForm.get('card')?.hasError('pattern') &&
+      PaymentForm.get('card')?.touched">
+      <small class="text-danger">Card Number should be numbers only</small>
+    </div>
+    </div>
+    <div class="form-group col-md-3 mb-3">
+      <label>Card Holder Name</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Card Holder Name"
+        formControlName="cardHolder"
+        [ngClass]= "{'is-invalid' :
+          PaymentForm.get('cardHolder')?.touched &&
+          PaymentForm.get('cardHolder')?.invalid}"
+      />
+      <div *ngIf="PaymentForm.get('cardHolder')?.hasError('required') &&
+        PaymentForm.get('cardHolder')?.touched">
+        <small class="text-danger">Card Holder Name is required</small>
+      </div>
+      <div *ngIf="PaymentForm.get('cardHolder')?.hasError('pattern') &&
+        PaymentForm.get('cardHolder')?.touched">
+        <small class="text-danger">Card Holder Name should not include numbers</small>
+      </div>
+    </div>
+    <div class="form-group col-md-3 mb-3">
+      <label>Card Expiry Date</label>
+      <input
+        type="Date"
+        class="form-control"
+        formControlName="expireDate"
+        [ngClass]= "{'is-invalid' :
+          PaymentForm.get('expireDate')?.touched &&
+          PaymentForm.get('expireDate')?.invalid}"
+      />
+      <div *ngIf="PaymentForm.get('expireDate')?.hasError('required') &&
+        PaymentForm.get('expireDate')?.touched">
+        <small class="text-danger">Card Holder Name is required</small>
       </div>
     </div>
   </div>
 </form>
+<div class="subscribe">
+  <button (click)="onSubmit()" class="btn btn-primary" >Register</button>
+</div>
+
 

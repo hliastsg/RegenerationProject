@@ -17,6 +17,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { GameDetailsComponent } from './components/game-details/game-details.component';
 import { GameDetailsService } from './services/game-details.service';
 import { PostUserService } from './services/post-user.service';
+import { NavbarAuthComponent } from './components/navbar-auth/navbar-auth.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PostUserService } from './services/post-user.service';
     GamesComponent,
     GameComponent,
     DashboardComponent,
-    GameDetailsComponent
+    GameDetailsComponent,
+    NavbarAuthComponent
   ],
   imports: [
     BrowserModule,

@@ -11,11 +11,18 @@ export class RegisterComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private service : PostUserService) { }
 
-  RegisterForm = new FormGroup({})
+  RegisterForm = new FormGroup({});
+  PaymentForm = new FormGroup({});
 
   response: any;
   msg: any;
+
   hasError: boolean = true;
+  payError: boolean = true
+
+  isChecked1: boolean = false;
+  isChecked2: boolean = false;
+  isChecked3: boolean = false;
 
   ngOnInit(): void {
     this.RegisterForm = this.fb.group({
@@ -25,6 +32,12 @@ export class RegisterComponent implements OnInit {
       confirmPass: new FormControl(''),
       dob: new FormControl('', [Validators.required])
     }, {validators: this.checkPasswords})
+
+    this.PaymentForm = this.fb.group({
+      card: new FormControl('', [Validators.required, Validators.pattern('^[0-9]+$') ] ),
+      cardHolder: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]),
+      expireDate: new FormControl(Date, [Validators.required]),
+    });
   }
 
   checkPasswords: ValidatorFn = (group: AbstractControl): ValidationErrors | null => {
@@ -34,6 +47,7 @@ export class RegisterComponent implements OnInit {
   }
 
   getFormValidationErrors = () => {
+
     Object.keys(this.RegisterForm.controls).forEach(key => {
         const controlErrors = this.RegisterForm.get(key)?.errors;
       if (controlErrors != null) {
@@ -43,9 +57,23 @@ export class RegisterComponent implements OnInit {
       }
     });
   }
+
+  getPaymentValidationErrors = () => {
+
+    Object.keys(this.PaymentForm.controls).forEach(key => {
+        const controlErrors = this.PaymentForm.get(key)?.errors;
+      if (controlErrors != null) {
+        return this.payError = true;
+      } else {
+        return this.payError = false;
+      }
+    });
+    this.getPaymentValidationErrors();
+  }
+
  onSubmit() {
    this.getFormValidationErrors();
-  if (!this.hasError) {
+  if (!this.hasError && !this.payError) {
     this.service.postUser(this.RegisterForm.value).subscribe({
       next: data => {
         this.response = data
@@ -56,7 +84,10 @@ export class RegisterComponent implements OnInit {
     console.log(this.response);
 
   } else {
-    alert("Enter your credentials correctly to register")
+    alert("Fill all the fields correctly to register")
+  }
+  if (this.isChecked1 && this.isChecked2 && this.isChecked3) {
+    alert("Choose only one plan")
   }
  }
 }

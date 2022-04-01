@@ -5,9 +5,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 85vh;
+  height: 55vh;
   color: rgba(197, 197, 197, 0.781);
   background-color: transparent;
+  margin-bottom: 90px;
+  margin-top: 10px;
 }
 
 .form-row input {
@@ -35,6 +37,32 @@
 
 .header {
   display: flex;
+  position: relative;
+  top: 10vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   justify-content: center;
   color: aliceblue;
+}
+
+.mid {
+  display: flex;
+  justify-content: center;
+  color: aliceblue;
+}
+#payment {
+ height: 35vh;
+}
+
+.subscribe {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-self: center;
+  margin: 30px;
+}
+
+.dropdown {
+  margin: 10px;
 }
