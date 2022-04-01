@@ -15,7 +15,12 @@ export class DashboardComponent implements OnInit {
 
   response: any;
   msg: string = '';
+  home: boolean = false;
   release: boolean = false; 
+  popular: boolean = false;
+  action: boolean = false;
+  indie: boolean = false;
+  sports: boolean = false;
 
   constructor(private release_service :NewReleaseService, private game_service :GameService, private action_service :ActionService,
     private indie_service :IndieService, private sports_service :SportsService, private popular_service :PopularService) { }
@@ -27,7 +32,13 @@ export class DashboardComponent implements OnInit {
   requestGames() {
     this.game_service.get().subscribe({
       next: data => {
-        this.response = data
+        this.response = data,
+        this.home = true,
+        this.release = false, 
+        this.popular = false,
+        this.indie = false,
+        this.action = false,
+        this.sports = false
       },
       error: error => this.msg = error,
       complete: () => this.msg = 'Request completed'
@@ -38,7 +49,12 @@ export class DashboardComponent implements OnInit {
     this.release_service.get().subscribe({
       next: data => {
         this.response = data,
-        this.release = true
+        this.home = false,
+        this.release = true, 
+        this.popular = false,
+        this.indie = false,
+        this.action = false,
+        this.sports = false
       },
       error: error => this.msg = error,
       complete: () => this.msg = 'Request completed'
@@ -48,7 +64,13 @@ export class DashboardComponent implements OnInit {
   requestAction() {
     this.action_service.get().subscribe({
       next: data => {
-        this.response = data
+        this.response = data,
+        this.home = false,
+        this.release = false, 
+        this.popular = false,
+        this.indie = false,
+        this.action = true,
+        this.sports = false
       },
       error: error => this.msg = error,
       complete: () => this.msg = 'Request completed'
@@ -58,7 +80,13 @@ export class DashboardComponent implements OnInit {
   requestIndie() {
     this.indie_service.get().subscribe({
       next: data => {
-        this.response = data
+        this.response = data,
+        this.home = false,
+        this.release = false, 
+        this.popular = false,
+        this.indie = true,
+        this.action = false,
+        this.sports = false
       },
       error: error => this.msg = error,
       complete: () => this.msg = 'Request completed'
@@ -68,7 +96,13 @@ export class DashboardComponent implements OnInit {
   requestSports() {
     this.sports_service.get().subscribe({
       next: data => {
-        this.response = data
+        this.response = data,
+        this.home = false,
+        this.release = false, 
+        this.popular = false,
+        this.indie = false,
+        this.action = false,
+        this.sports = true
       },
       error: error => this.msg = error,
       complete: () => this.msg = 'Request completed'
@@ -78,7 +112,13 @@ export class DashboardComponent implements OnInit {
   requestPopular() {
     this.popular_service.get().subscribe({
       next: data => {
-        this.response = data
+        this.response = data,
+        this.home = false,
+        this.release = false, 
+        this.popular = true,
+        this.indie = false,
+        this.action = false,
+        this.sports = false
       },
       error: error => this.msg = error,
       complete: () => this.msg = 'Request completed'
