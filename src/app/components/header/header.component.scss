@@ -12,7 +12,9 @@
 }
 
 .welcome {
-  background-image: url("../../../assets/header.jpg");
+  background: linear-gradient(#00000091, transparent 150%), #af3939
+  url("../../../assets/header.jpg") center no-repeat fixed;
+  // background-image: url("../../../assets/header.jpg");
   min-height: 100%;
   min-width: 100%;
   background-size: cover;
