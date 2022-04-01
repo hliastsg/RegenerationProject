@@ -18,6 +18,8 @@ import { GameDetailsComponent } from './components/game-details/game-details.com
 import { GameDetailsService } from './services/game-details.service';
 import { PostUserService } from './services/post-user.service';
 import { NavbarAuthComponent } from './components/navbar-auth/navbar-auth.component';
+import { AboutAuthComponent } from './components/about-auth/about-auth.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { NavbarAuthComponent } from './components/navbar-auth/navbar-auth.compon
     GameComponent,
     DashboardComponent,
     GameDetailsComponent,
-    NavbarAuthComponent
+    NavbarAuthComponent,
+    AboutAuthComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

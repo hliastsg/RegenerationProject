@@ -1,0 +1,14 @@
+.container-fluid {
+  background-color: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+  padding: 50px;
+  color: rgba(197, 197, 197, 0.781);
+}
+
+.container-fluid h1 {
+  font-size: 60px;
+}

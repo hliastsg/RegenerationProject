@@ -1,5 +1,5 @@
 <div class="header">
-  <h1>Available 1000+ Games, New Releases, Exclusive Content</h1>
+  <h1>Available 500+ Games, New Releases, Exclusive Content</h1>
   <h2>Enter your details to subscribe now!</h2>
 </div>
 <form [formGroup]="RegisterForm">
@@ -120,7 +120,7 @@
       <h5 class="card-title">Basic</h5>
       <h6 class="card-text">1 Member</h6>
       <p class="card-text">Price: 8.99$ per month</p>
-      <input type="checkbox" [checked]="isChecked1">
+      <input type="radio" name="isChecked">
     </div>
   </div>
   <div class="card" style="width: 18rem;">
@@ -128,7 +128,7 @@
       <h5 class="card-title">Plus</h5>
       <h6 class="card-text">2 Members</h6>
       <p class="card-text">Price: 12.98$ per month</p>
-      <input type="checkbox" [checked]="isChecked2">
+      <input type="radio" name="isChecked">
     </div>
   </div>
   <div class="card" style="width: 18rem;">
@@ -136,7 +136,7 @@
       <h5 class="card-title">Pro</h5>
       <h6 class="card-text">4 Members</h6>
       <p class="card-text">Price: 22.98$ per month</p>
-      <input type="checkbox" [checked]="isChecked3">
+      <input type="radio" name="isChecked">
     </div>
   </div>
 </div>
@@ -212,7 +212,7 @@
   </div>
 </form>
 <div class="subscribe">
-  <button (click)="onSubmit()" class="btn btn-primary" >Register</button>
+  <button (click)="onSubmit()" class="btn btn-danger" >Register</button>
 </div>
 
 

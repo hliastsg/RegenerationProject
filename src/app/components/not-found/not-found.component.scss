@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(174, 174, 174);
+  height: 100vh;
+}
+.notfound {
+  background-image: url("../../../assets/404.jpg");
+  min-height: 100%;
+  min-width: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
