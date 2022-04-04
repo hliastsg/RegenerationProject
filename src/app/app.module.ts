@@ -20,6 +20,7 @@ import { PostUserService } from './services/post-user.service';
 import { NavbarAuthComponent } from './components/navbar-auth/navbar-auth.component';
 import { AboutAuthComponent } from './components/about-auth/about-auth.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     GameDetailsComponent,
     NavbarAuthComponent,
     AboutAuthComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
