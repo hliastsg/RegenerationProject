@@ -1,6 +1,8 @@
 .container-fluid {
   background-color: none;
   display: flex;
+  position: relative;
+  top: 30vh;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -11,4 +13,9 @@
 
 .container-fluid h1 {
   font-size: 60px;
+  font-style: italic;
+}
+
+.container-fluid p {
+  font-size: larger;
 }
