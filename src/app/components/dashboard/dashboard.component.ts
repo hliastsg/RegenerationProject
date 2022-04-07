@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   response: any;
   msg: string = '';
   home: boolean = false;
-  release: boolean = false; 
+  release: boolean = false;
   popular: boolean = false;
   action: boolean = false;
   indie: boolean = false;
@@ -30,11 +30,11 @@ export class DashboardComponent implements OnInit {
   }
 
   requestGames() {
-    this.game_service.get().subscribe({
+    this.game_service.get(1).subscribe({
       next: data => {
         this.response = data,
         this.home = true,
-        this.release = false, 
+        this.release = false,
         this.popular = false,
         this.indie = false,
         this.action = false,
@@ -50,7 +50,7 @@ export class DashboardComponent implements OnInit {
       next: data => {
         this.response = data,
         this.home = false,
-        this.release = true, 
+        this.release = true,
         this.popular = false,
         this.indie = false,
         this.action = false,
@@ -66,7 +66,7 @@ export class DashboardComponent implements OnInit {
       next: data => {
         this.response = data,
         this.home = false,
-        this.release = false, 
+        this.release = false,
         this.popular = false,
         this.indie = false,
         this.action = true,
@@ -82,7 +82,7 @@ export class DashboardComponent implements OnInit {
       next: data => {
         this.response = data,
         this.home = false,
-        this.release = false, 
+        this.release = false,
         this.popular = false,
         this.indie = true,
         this.action = false,
@@ -98,7 +98,7 @@ export class DashboardComponent implements OnInit {
       next: data => {
         this.response = data,
         this.home = false,
-        this.release = false, 
+        this.release = false,
         this.popular = false,
         this.indie = false,
         this.action = false,
@@ -114,7 +114,7 @@ export class DashboardComponent implements OnInit {
       next: data => {
         this.response = data,
         this.home = false,
-        this.release = false, 
+        this.release = false,
         this.popular = true,
         this.indie = false,
         this.action = false,

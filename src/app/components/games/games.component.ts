@@ -10,8 +10,10 @@ import { GameService } from 'src/app/services/game.service';
 export class GamesComponent implements OnInit {
 
  //data:any;
-  response: any;
+  response: any[] = [];
+  page:any;
   msg: string = '';
+  i:number = 0;
 
   constructor(private service :GameService) {
    }
@@ -22,13 +24,21 @@ export class GamesComponent implements OnInit {
     }
 
   requestGames() {
-    this.service.get().subscribe({
+
+    if(this.i<10) {
+      this.i++;
+
+    this.service.get(this.i).subscribe({
       next: data => {
-        this.response = data
+        this.page=data
+        this.response.push(data)
+        this.requestGames()
       },
       error: error => this.msg = error,
       complete: () => this.msg = 'Request completed'
     });
+
+  }
   }
 
 }

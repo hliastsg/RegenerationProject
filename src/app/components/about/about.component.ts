@@ -10,21 +10,7 @@ export class AboutComponent implements OnInit {
 
   constructor(private service: GameService) { }
 
-  response: any;
-  msg: any;
-
   ngOnInit(): void {
-    this.requestGames();
-  }
-
-  requestGames() {
-    this.service.get().subscribe({
-      next: data => {
-        this.response = data
-      },
-      error: error => this.msg = error,
-      complete: () => this.msg = 'Request completed'
-    });
   }
 
 }

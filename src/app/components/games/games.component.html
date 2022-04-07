@@ -1,9 +1,11 @@
 
 <!-- <pre>{{response |json}}</pre> -->
 
-    <app-game [game]="g" *ngFor="let g of response.results"></app-game>
+    <!-- <app-game [game]="g" *ngFor="let g of response.results"></app-game> -->
 
-
+    <div *ngFor="let g of response; let i= index ">
+      <app-game [game]="g" *ngFor="let g of response[i].results"></app-game>
+    </div>
 
 
 

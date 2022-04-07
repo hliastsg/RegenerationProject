@@ -11,12 +11,12 @@ export class GameService {
 
   constructor(private http: HttpClient) { }
 
-  url: string = 'https://api.rawg.io/api/games';
-  params = new HttpParams()
-  .set('key', 'dac4d24e2f2a4bd9b158a06fd7645c15');
+  url: string = 'https://api.rawg.io/api/games?key=dac4d24e2f2a4bd9b158a06fd7645c15';
+  // params = new HttpParams()
+  // .set('key', 'dac4d24e2f2a4bd9b158a06fd7645c15');
 
-  get(){
-    return this.http.get(this.url, {params: this.params})
+  get(i:number){
+    return this.http.get(this.url + '&page=' + i)
       .pipe(
         retry(1),
         catchError(error => throwError(() => `Something went wrong: ${error}`))
