@@ -26,6 +26,7 @@ export class RegisterComponent implements OnInit {
   isChecked3: boolean = false;
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.RegisterForm = this.fb.group({
       fullName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(10), Validators.pattern('^[a-zA-Z]+$') ] ),
       email: new FormControl('', [Validators.email, Validators.required]),
